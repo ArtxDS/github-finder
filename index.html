@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Git Search app</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" href="./assets/github.png">
+    <style>
+      body {
+        background-color: #141c2f;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="containerAll">
+      <div class="modal-error">
+        <div class="err"> <img class="warningImg" src="./assets/warningLight.png" alt=""> <h3>invalid User</h3></div>
+      </div>
+      <div class="header">
+        <div><h2>devfinder</h2></div>
+        <div class="background-mode">
+          <h3 id="change-mode" style="font-size: 14px; letter-spacing: 4px">
+            LIGHT
+          </h3>
+          <img
+            onclick="bodymode()"
+            id="mod"
+            style="width: 32px; height: 32px; cursor: pointer"
+            src="./assets/night-mode.png"
+            alt=""
+          />
+        </div>
+      </div>
+
+     
+      <div class="search">
+        <div class="search-input">
+          <i
+            ><img
+              style="width: 24px; height: 24px"
+              src="./assets/search.png"
+              alt=""
+          /></i>
+          <input
+            type="text"
+            class="user"
+            placeholder="Search Github username..."
+          />
+        </div>
+        <button class="btn-test" onclick="locateUser()">Search</button>
+      </div>
+
+      <div class="container">
+        <div class="profile-box">
+          <div class="img-profile">
+            <picture
+              ><img
+                style="width: 80px; height: 80px"
+                src="./assets/hacker.png"
+                alt=""
+            /></picture>
+          </div>
+          <div class="profile">
+           <div > 
+            <h2 style="margin-bottom: 0; max-width: 300px;">Username</h2>
+            <h4  class="link-git" class="Id-user">@exemple</h4>
+          </div>
+            <div style="width: 200px;"><p>Joined 25 jan 2011</p></div>  
+            
+          </div>
+        </div>
+  
+       <div class="bio-profile">
+          <p>here exemple bio profile</p>
+        </div>
+
+         <div class="status">
+          <div>
+            <h3>Repos</h3>
+            <p>8</p>
+          </div>
+          <div>
+            <h3>Followers</h3>
+            <p>1000</p>
+          </div>
+          <div>
+            <h3>following</h3>
+            <p>300</p>
+          </div>
+        </div>
+
+        <div class="info-profile">
+          <div>
+            <i><img  src="./assets/map.png" alt="" /></i>
+            <p>San francisco</p>
+          </div>
+          <div>
+            <i><img  src="./assets/social-media.png" alt="" /></i>
+            <p>Social</p>
+          </div>
+          <div>
+            <i><img src="./assets/link.png" alt="" /></i>
+            <a href="">https://github/repos</a>
+          </div>
+          <div>
+            <i><img src="./assets/github.png" alt="" /></i>
+            <a href="">@github</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="/api.js"></script>
+  <script src="./mode.js"></script>
+</html>
+
