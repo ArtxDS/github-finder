@@ -1,6 +1,8 @@
 // user Github
 const gitUser = "https://api.github.com/users/";
 const Contain = document.querySelector(".container");
+const modalError = document.querySelector(".modal-error");
+const User = document.querySelector(".user");
 
 //fetch request
 function GetUser(Username) {
@@ -8,6 +10,7 @@ function GetUser(Username) {
     .then((res) => {
       return res.json();
     })
+
     .then((Data) => {
       console.log(Data);
 
@@ -54,11 +57,11 @@ function GetUser(Username) {
 
     <div class="info-profile">
       <div>
-        <i><img  src="./assets/map.png" alt="" /></i>
+        <i><img  src="/assets/map.png" alt="" /></i>
         <p>${Data.location === null ? "no location" : Data.location}</p>
       </div>
       <div>
-        <i><img  src="./assets/social-media.png" alt="" /></i>
+        <i><img  src="/assets/social-media.png" alt="" /></i>
         <p>${
           Data.twitter_username === null
             ? "Not Available"
@@ -66,44 +69,47 @@ function GetUser(Username) {
         }</p>
       </div>
       <div>
-        <i><img src="./assets/link.png" alt="" /></i>
+        <i><img src="/assets/link.png" alt="" /></i>
         <a href="${Data.repos_url}">https://github/repos</a>
       </div>
       <div>
-        <i><img src="./assets/github.png" alt="" /></i>
+        <i><img src="/assets/github.png" alt="" /></i>
         <a href=" ${Data.html_url}">@github</a>
       </div>
     </div>
          `);
     })
     .catch((err) => {
-      console.log("invalid" + err);
+      console.log("invalid " + err);
+      modalError.style.display = "block";
+      modalError.style.animationName = "error";
     });
 }
 
-// executing function
-const User = document.querySelector(".user");
-
-function locateUser() {
-  GetUser(User.value);
-}
-
-//SetError => modal
-const inputSerach = document.querySelector(".btn-test");
-const modalError = document.querySelector(".modal-error.modal-error");
-
-inputSerach.addEventListener("click", () => {
-  if (User.value === "") {
-    modalError.style.display = "block";
-    modalError.style.animationName = "error";
-
-    User.style.animationName = "shakeInput";
+//event keyboard ()=> executing function
+window.addEventListener("keydown", (event) => {
+  const isEnterKey = event.key === "Enter";
+  if (isEnterKey & (User.value != "")) {
+    GetUser(User.value);
   }
 });
- 
+
+//disable => btn /// our execute fuction
+const BtnSearch = document.querySelector(".btn-test");
+function locateUser() {
+  if (User.value == "") {
+    BtnSearch.setAttribute("", "disabled");
+  } else {
+    BtnSearch.innerHTML = `<div class="loader"></div>`;
+    setTimeout(() => {
+      GetUser(User.value);
+      BtnSearch.innerHTML = "Search";
+    }, 2500);
+  }
+}
+
 //RemoveError => modal
 const input = document.querySelector(".user");
-
 input.addEventListener("keydown", (event) => {
   if (event) {
     modalError.style.display = "none";

@@ -4,7 +4,7 @@ const header = document.querySelector(".header");
 const textMode = document.getElementById("change-mode");
 const modImg = document.getElementById("mod");
 
-const gitLight = "./assets/night-mode.png";
+const gitLight = "/assets/night-mode.png";
 const gitNight = "/night-mode (1).png";
 const modalErrorSet = document.querySelector(".modal-error.modal-error");
 const imgWarning = document.querySelector('.warningImg')
@@ -16,9 +16,6 @@ function bodymode() {
   header.classList.toggle("light");
 
   body.classList.contains("active")
-
-  
-  
   ?    modalErrorSet.classList.add('modal-mode')
        (modImg.setAttribute("src", gitNight)((textMode.innerHTML = "DARK")))
     
