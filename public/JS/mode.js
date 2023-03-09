@@ -5,7 +5,7 @@ const textMode = document.getElementById("change-mode");
 const modImg = document.getElementById("mod");
 
 const gitLight = "/assets/night-mode.png";
-const gitNight = "/night-mode (1).png";
+const gitNight = "/night-mode1.png";
 const modalErrorSet = document.querySelector(".modal-error.modal-error");
 const imgWarning = document.querySelector('.warningImg')
 
