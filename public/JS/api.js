@@ -1,10 +1,10 @@
-// user Github
+
 const gitUser = "https://api.github.com/users/";
 const Contain = document.querySelector(".container");
 const modalError = document.querySelector(".modal-error");
 const User = document.querySelector(".user");
 
-//fetch request
+
 function GetUser(Username) {
   fetch(gitUser + `${Username}`)
     .then((res) => {
@@ -86,7 +86,7 @@ function GetUser(Username) {
     });
 }
 
-//event keyboard ()=> executing function
+
 window.addEventListener("keydown", (event) => {
   const isEnterKey = event.key === "Enter";
   if (isEnterKey & (User.value != "")) {
@@ -94,7 +94,7 @@ window.addEventListener("keydown", (event) => {
   }
 });
 
-//disable => btn /// our execute fuction
+
 const BtnSearch = document.querySelector(".btn-test");
 function locateUser() {
   if (User.value == "") {
@@ -108,7 +108,7 @@ function locateUser() {
   }
 }
 
-//RemoveError => modal
+
 const input = document.querySelector(".user");
 input.addEventListener("keydown", (event) => {
   if (event) {
